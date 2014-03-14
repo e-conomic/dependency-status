@@ -33,7 +33,7 @@ The above result will look like this
 }
 ```
 
-The status of each dependency can be `latest`, `up-to-date` or `outdated`
+The status of each dependency can be `up-to-date` or `outdated`.
 
 You can also use `check-dependencies` if your node project is not on npm but only on github (like an app).
 Simply pass `username/repository` to the function

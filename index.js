@@ -68,8 +68,7 @@ var check = function(name, opts, cb) {
 				result.latest = latest.version;
 				result.used = used.replace(/^v/, '');
 
-				if (latest.version === used) result.status = 'latest';
-				else if (semver.satisfies(latest.version, used)) result.status = 'up-to-date';
+				if (semver.satisfies(latest.version, used)) result.status = 'up-to-date';
 				else result.status = 'outdated';
 
 				return result;
