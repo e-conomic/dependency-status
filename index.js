@@ -17,6 +17,12 @@ var check = function(name, opts, cb) {
 		});
 	};
 
+	var findRepo = function(pkg) {
+		if (pkg.repository && typeof pkg.repository === 'string') return pkg.repository;
+		if (pkg.repository && pkg.repository.url) return pkg.repository.url;
+		return undefined;
+	};
+
 	var readGithub = function(repo, cb) {
 		req('https://'+auth+'raw.github.com/'+repo+'/master/package.json', cb);
 	};
@@ -65,6 +71,7 @@ var check = function(name, opts, cb) {
 				var result = {};
 
 				result.name = latest.name;
+				result.repository = findRepo(latest);
 				result.latest = latest.version;
 				result.used = used.replace(/^v/, '');
 
