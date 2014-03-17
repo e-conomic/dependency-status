@@ -70,7 +70,7 @@ var check = function(name, opts, cb) {
 					var old = dependencies[latest.name];
 					if (!old) return null;
 
-					var used = old.split('#')[1] || '*';
+					var used = /git@/.test(old) ? (old.split('#')[1] || '*') : old;
 					var result = {};
 
 					result.name = latest.name;
