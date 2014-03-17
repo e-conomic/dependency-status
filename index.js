@@ -65,21 +65,27 @@ var check = function(name, opts, cb) {
 		var next = after(function(err) {
 			if (err) return cb(err);
 
-			pkgs = pkgs.map(function(latest) {
-				var old = dependencies[latest.name];
-				var used = old.split('#').pop() || '*';
-				var result = {};
+			pkgs = pkgs
+				.map(function(latest) {
+					var old = dependencies[latest.name];
+					if (!old) return null;
 
-				result.name = latest.name;
-				result.repository = findRepo(latest);
-				result.latest = latest.version;
-				result.used = used.replace(/^v/, '');
+					var used = old.split('#').pop() || '*';
+					var result = {};
 
-				if (semver.satisfies(latest.version, used)) result.status = 'up-to-date';
-				else result.status = 'outdated';
+					result.name = latest.name;
+					result.repository = findRepo(latest);
+					result.latest = latest.version;
+					result.used = used.replace(/^v/, '');
 
-				return result;
-			});
+					if (semver.satisfies(latest.version, used)) result.status = 'up-to-date';
+					else result.status = 'outdated';
+
+					return result;
+				})
+				.filter(function(dep) {
+					return dep;
+				});
 
 			cb(null, {
 				name: pkg.name,
