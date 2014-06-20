@@ -1,8 +1,8 @@
 {
-  "name": "check-dependencies",
+  "name": "dependency-status",
   "version": "0.2.5",
   "description": "Check whether your public npm dependencies (or private github dependencies) are up-to-date",
-  "repository": "git://github.com/e-conomic/check-dependencies.git",
+  "repository": "git://github.com/e-conomic/dependency-status.git",
   "dependencies": {
     "after-all": "^0.1.1",
     "semver": "^2.2.1",
