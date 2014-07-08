@@ -6,6 +6,6 @@
   "dependencies": {
     "after-all": "^0.1.1",
     "semver": "^2.2.1",
-    "request": "^2.37.1"
+    "request": "^2.37.0"
   }
 }
