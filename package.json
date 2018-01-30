@@ -1,6 +1,6 @@
 {
   "name": "dependency-status",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Check whether your public npm dependencies (or private github dependencies) are up-to-date",
   "repository": "git://github.com/e-conomic/dependency-status.git",
   "dependencies": {

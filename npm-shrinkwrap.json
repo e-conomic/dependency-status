@@ -1,6 +1,6 @@
 {
   "name": "dependency-status",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "dependencies": {
     "after-all": {
       "version": "0.1.1",
